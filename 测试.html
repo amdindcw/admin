@@ -1,0 +1,29 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function TableRow(props) {
+return (
+<tr>
+  <td>{props.data.column1}</td>
+  <td>{props.data.column2}</td>
+</tr>
+);
+}
+
+function App() {
+const tableData = [
+{column1: '第一行数据列1', column2: '第一行数据列2'},
+{column1: '第二行数据列1', column2: '第二行数据列2'}
+];
+return (
+<table>
+  {tableData.map((data, index) => (
+  <TableRow key={index} data={data} />
+  ))}
+</table>
+);
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<App />);
